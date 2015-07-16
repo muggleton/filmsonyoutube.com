@@ -54,7 +54,7 @@ public function handle()
         if($youtube_id && $information)
         {
             // Check if we have already stored it (even if deleted)
-            $link = Link::withTrashed()->where('youtube_id' => $youtube_id)->where('reddit_id', $reddit_id)->first();
+            $link = Link::withTrashed()->where('youtube_id', $youtube_id)->where('reddit_id', $reddit_id)->first();
 
             if(!$link)
             {
