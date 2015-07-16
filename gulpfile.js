@@ -55,15 +55,12 @@ elixir(function(mix) {
 	.copy(paths.angular_route + 'angular-route.min.js', 'public/assets/js/vendor/angular-route.min.js')
 	// Combine vendor/angular and angular vendor scripts
 	.scripts([
-
-		'bootstrap-sidebar/dist/js/sidebar.js',
 		'jquery/dist/jquery.min.js',
+		'bootstrap-sidebar/dist/js/sidebar.js',
 		'bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
 		'angular/angular.js', 
 		'angular-loading-bar/src/loading-bar.js',
 		'ngInfiniteScroll/build/ng-infinite-scroll.min.js',
-		'angularjs-slider/dist/rzslider.min.js',
-		'ng-debounce/angular-debounce.js'
 		], 'public/assets/js/vendor/vendor.js' ,'resources/assets/bower')
 	// Combine all scripts (controllers, filters etc) in to one app.js file
 	.scriptsIn(['resources/assets/js'], 'public/assets/js/app.js')
