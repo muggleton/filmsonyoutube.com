@@ -53,10 +53,17 @@ public function handle()
         // If we can extract the Youtube ID and Title/Year
         if($youtube_id && $information)
         {
-            // Create entry or update if exists (we use the reddit id the unqiue key)
-            $link = Link::firstOrCreate(['youtube_id' => $youtube_id, 'reddit_id' => $reddit_id]);
+            // Check if we have already stored it (even if deleted)
+            $link = Link::withTrashed()->where('youtube_id' => $youtube_id)->where('reddit_id', $reddit_id)->first();
 
-            $this->dispatch(new FetchFilmInformation($link, $information['title'], $information['year'], $information['quality']));
+            if(!$link)
+            {
+                // We haven't stored it
+                 // Create entry or update if exists (we use the reddit id the unqiue key)
+                $link = Link::create(['youtube_id' => $youtube_id, 'reddit_id' => $reddit_id]);
+                $this->dispatch(new FetchFilmInformation($link, $information['title'], $information['year'], $information['quality']));
+            }
+
         }
     }
 
