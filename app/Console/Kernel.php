@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
     \FilmsOnYoutube\Console\Commands\Inspire::class,
-    'FilmsOnYoutube\Console\Commands\FetchLinks'
+    'FilmsOnYoutube\Console\Commands\FetchLinks',
+    'FilmsOnYoutube\Console\Commands\CheckLink'
     ];
 
     /**

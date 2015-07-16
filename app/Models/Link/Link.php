@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model
 {
+	// Use soft deleting
+	use SoftDeletes;
+	
 	// Guarded attributes to allow mass assignment
 	protected $guarded = ['id'];
 
 	// Register custom attributes
 	protected $appends = ['embed', 'url'];
+
 
 	// Hidden
 	protected $hidden = ['id', 'updated_at', 'deleted_at', 'film_id', 'reddit_id', 'youtube_id', 'last_checked'];
