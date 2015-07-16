@@ -6579,3 +6579,48 @@ a:hover {
 .title {
     color: white;
     margin-top: 0; }
+  body
+.link-container
+.link-plot {
+    margin-bottom: 7px; }
+  body
+.link-container
+.link-stats {
+    padding-bottom: 10px; }
+    body
+.link-container
+.link-stats
+.link-stat {
+      display: inline-block;
+      padding-right: 5px; }
+  body
+.link-container
+.link-information-container {
+    padding-bottom: 15px; }
+    body
+.link-container
+.link-information-container
+.link-information {
+      display: inline-block; }
+      @media (max-width: 768px) {
+        body
+.link-container
+.link-information-container
+.link-information {
+          padding-bottom: 7px; } }
+      body
+.link-container
+.link-information-container
+.link-information
+.link-information-title {
+        color: white;
+        font-weight: bold;
+        display: block;
+        padding-bottom: 2px; }
+      body
+.link-container
+.link-information-container
+.link-information
+.link-information-entry {
+        display: block;
+        padding-bottom: 1px; }

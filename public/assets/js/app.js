@@ -43,8 +43,6 @@ app.run(function(){
  	$locationProvider.html5Mode(true);
  });
 
-
-
 app.controller('linkController', function($scope, $routeParams, linkService){
 
 	$scope.init = function() {
@@ -173,6 +171,8 @@ app.controller('navigationController', function($scope, $location) {
 		return route === $location.path();
 	};
 });
+
+
 app.service('linkService', function($http){
 	var search_results = [];
 

@@ -13,11 +13,7 @@ class LinksController extends Controller
 
     public function index(Request $request)
     {
-        $links = Link::with('resolution')
-        ->with('film.genres')
-        ->with('film.languages')
-        ->with('film.directors')
-        ->with('film.cast')
+        $links = Link::with('resolution', 'film.genres', 'film.languages', 'film.directors', 'film.cast')
         ->orderBy('links.created_at', 'DESC');
 
         $search         = $request->get('search');
@@ -106,7 +102,7 @@ class LinksController extends Controller
 
     public function show($id)
     {
-        return Link::whereId($id)->with('film', 'film.genres')->first();
+        return Link::whereId($id)->with('resolution', 'film.genres', 'film.languages', 'film.directors', 'film.cast')->first();
     }
 
 }

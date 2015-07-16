@@ -283,6 +283,7 @@ body
 				font-size: 14px;
 				color: white;
 			}
+
 			.link-hover-lists-container
 			{
 				padding: 0 10px;
@@ -363,5 +364,42 @@ body
 			color: white;
 			margin-top: 0;
 		}
+		.link-plot
+		{
+			margin-bottom: 7px;
+		}
+		.link-stats
+		{
+			.link-stat
+			{
+				display: inline-block;
+				padding-right: 5px;
+			}
+			padding-bottom: 10px;
+		}
+		.link-information-container
+		{
+			padding-bottom: 15px;
+			.link-information
+			{
+				display: inline-block;
+				@media(max-width: $screen-sm-size){
+					padding-bottom: 7px;
+				}
+				.link-information-title
+				{
+					color: white;
+					font-weight: bold;
+					display: block;
+					padding-bottom: 2px;
+				}
+				.link-information-entry
+				{
+					display: block;
+					padding-bottom: 1px;
+				}
+			}
+		}
+
 	}
 }
