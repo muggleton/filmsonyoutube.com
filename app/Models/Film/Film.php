@@ -9,7 +9,9 @@ class Film extends Model
     // Guarded attributes to allow mass assignment
 	protected $guarded = ['id'];
 
-	protected $hidden = ['updated_at', 'created_at', 'id'];
+	protected $hidden = ['updated_at', 'created_at', 'id', 'poster'];
+
+	protected $appends = ['posterlink'];
 
 	public function links()
 	{
@@ -36,15 +38,17 @@ class Film extends Model
 		return $this->hasMany('FilmsOnYoutube\Models\Film\Cast\Cast', 'film_id', 'id');
 	}
 	// Check whether there is a poster
-	public function getPosterAttribute($value)
+	public function getPosterLinkAttribute()
 	{
-		if($value !== '')
+		$poster = $this->poster;
+
+		if($poster !== '')
 		{
-			return $value;
+			return '/poster/' . $this->id;
 		}
 		else
 		{
-			return 'missing.jpg';
+			return '/assets/img/posters/missing.jpg';
 		}
 	}
 }

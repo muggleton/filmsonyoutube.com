@@ -91,11 +91,12 @@ class FetchFilmInformation extends Job implements SelfHandling, ShouldQueue
         }
 
         // Check if poster exists, if it does, save it 
-        $filename = '';
+        $location = '';
+
         if($response['Poster'] !== 'N/A' && $poster = file_get_contents($response['Poster']))
         {
-            $filename = $this->link->id . '.jpg';
-            file_put_contents(public_path() . '/assets/img/posters/' . $filename , $poster);
+            $location = env('POSTER_PATH') . '/' . $this->link->id . '.jpg';
+            file_put_contents($location, $poster);
         }
 
         // Otherwise add the new film to our database
@@ -103,7 +104,7 @@ class FetchFilmInformation extends Job implements SelfHandling, ShouldQueue
             'title'             => $response['Title'],
             'year'              => $response['Year'],
             'plot'              => $response['Plot'],
-            'poster'            => $filename,
+            'poster'            => $location,
             'imdb_rating'       => $response['imdbRating'],
             'imdb_votes'        => $response['imdbVotes'],
             'imdb_id'           => $response['imdbID'],
