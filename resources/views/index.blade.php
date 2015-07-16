@@ -21,7 +21,6 @@
 
       <nav class="navbar navbar-default navbar-fixed-top" id="topbar" ng-controller="navigationController">
         <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button ng-show="isCurrent('/')" ng-cloak type="button" class="navbar-toggle" data-toggle="sidebar" data-target=".search-sidebar">
               <span class="sr-only">Toggle navigation</span>
@@ -36,17 +35,12 @@
           </div>
         </nav>
 
-        <!-- content -->
       </div>
       <div class="container-fluid" id="view" ng-view>
 
       </div>
 
-      <script src="/assets/js/vendor/jquery.min.js"></script>
-      <script src="/assets/js/vendor/bootstrap.min.js"></script>
-      <script src="/assets/js/vendor/sidebar.js"></script>
-      <!-- Angular -->
-      <script src="/assets/js/vendor/angular.js"></script>
+      <script src="/assets/js/vendor/vendor.js"></script>
       <script src="/assets/js/vendor/angular-route.min.js"></script>
       <script src="/assets/js/app.js"></script>
 
