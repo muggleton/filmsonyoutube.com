@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('links:fetch')->everyThirtyMinutes();
-        $schedule->command('links:check')->everyThirtyMinutes();
+        $schedule->command('links:check')->cron('*/1 * * * *');
     }
 
 }
