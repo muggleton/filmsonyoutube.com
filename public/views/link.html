@@ -1,0 +1,11 @@
+<div ng-controller="linkController" class="link-container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 ng-cloak ng-show="link.film.title" class="title"><% link.film.title %> (<% link.film.year %>)</h1>
+			<p><% link.film.plot %></p>
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" ng-src="<%link.embed%>" allowfullscreen=""></iframe>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,367 @@
+// Inline import bootstrap 
+@import "resources/assets/bower/bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+// Inline import sidebar and loading bar
+@import "../bower/bootstrap-sidebar/dist/css/sidebar.css";
+@import "../bower/angular-loading-bar/src/loading-bar.css";
+@import "../bower/angularjs-slider/dist/rzslider.min.css";
+
+// Angular
+[ng\:cloak], [ng-cloak], .ng-cloak { display: none; }
+
+
+// Common colors
+$background-color: #333;
+$topbar-color: #222;
+$font-color: #999;
+$link-color: #888;
+$info-color: #aaa;
+$transparent-color: rgba(0,0,0,0.8);
+
+$screen-sm-size: 768px;
+
+/** Loading bar **/
+#loading-bar .peg 
+{
+	display: none;
+}
+#loading-bar .bar
+{
+	background: #d02525;
+}
+
+
+body
+{
+	padding-top: 75px;
+	padding-bottom: 20px;
+
+	background: $background-color;
+
+	color: $font-color;
+
+	#topbar
+	{
+		background: $topbar-color;
+		border: none;
+		border-radius: 0;
+
+		.navbar-header {
+			float: left;
+			text-align: center;
+			width: 100%;
+		}
+		.navbar-brand
+		{
+			float:none;
+
+			.navbar-logo
+			{
+				max-width: 160px; 
+				margin-top: 9px;
+				margin-right: -42px;
+				display: inline-block;
+			}
+		}
+		.navbar-home
+		{
+
+			color: $link-color;
+			text-decoration: none;
+			font-size: 18px;
+			display: block;
+			position: relative;
+			float: right;
+			padding: 5px 10px 5px 14px;
+			margin-top: 8px;
+
+			@media(max-width: $screen-sm-size){
+				padding-right: 0;
+				margin-right: -15px;
+			}
+
+		}
+		.navbar-home:hover,
+		.navbar-home:focus
+		{
+			color: white;
+		}
+		.navbar-toggle
+		{
+			border: none;
+
+			margin-right: 0;;
+			
+			@media(max-width: $screen-sm-size){
+				margin-right: -15px;
+				padding-right: 0;
+			}
+			
+		}
+		.navbar-toggle:hover,
+		.navbar-toggle:focus
+		{
+
+			background: transparent;
+
+			.icon-bar
+			{
+				background: white;
+			}
+		}
+
+	}
+
+	/** Sidebar **/
+	.search-sidebar
+	{
+		height: 100%;
+		background: $topbar-color;
+		top: 49px;
+		padding: 10px 12.5px;
+
+		#search-accordion
+		{
+			height: 100%;
+		}
+
+		#search-input-addon
+		{
+			background: $background-color;
+			border: none;
+			border-radius: 10px;
+			border-bottom-right-radius: 0;
+			border-top-right-radius: 0;
+			box-shadow: none;
+			margin-right: -1px;
+
+		}
+		.search-input
+		{
+			border-radius: 10px;
+			border: none;
+			background: $background-color;
+		}
+
+		.search-input:focus
+		{
+			box-shadow: none;
+			background: white;
+		}
+
+		.accordion-heading
+		{
+			padding: 10px 0 3px 0;
+
+			a
+			{
+				color: $link-color;
+				text-decoration: none; 
+				font-weight: 500;
+				font-size: 14px;
+
+				.icon-collapsed
+				{
+					display: inline-block;
+					font-size: 14px;
+					line-height: 1.3;
+				}
+				.icon-open
+				{
+					display: none;
+					font-size: 14px;
+					line-height: 1.3;
+				}
+			}
+			a[aria-expanded="true"]
+			{
+				.icon-collapsed
+				{
+					display: none;
+				}
+				.icon-open
+				{
+					display: inline-block;
+				}
+			}
+			a:hover
+			{
+				color: white;
+			}
+		}
+		.accordion-inner
+		{
+			padding: 0 10px 0 0;
+
+			.checkbox
+			{
+				margin-top: 5px;
+			}
+		}
+	}
+
+
+	.link
+	{
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 20px;
+		overflow: hidden;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		.link-title
+		{
+			position: absolute;
+			background: $transparent-color;
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			color: white;
+			top: 0;
+			left: 0;
+		}
+
+		.link-information
+		{
+			position: absolute;
+			width: 100%;
+			padding: 10px;
+			font-size: 14px;
+			background: $transparent-color;
+			color: white;
+			bottom: 0;
+
+			.link-imdb-rating
+			{
+				text-align: left;
+
+				.link-imdb-votes
+				{
+					font-size: 12px;
+					color: $info-color;
+					padding-left: 1px;
+				}
+			}
+
+			.link-quality
+			{
+				text-align: right;
+			}
+			.film-length
+			{
+				text-align: center;
+			}
+		}
+		.link-hover-information
+		{
+			display: none;
+		}
+	}
+	.link:hover
+	{
+		.link-title
+		{
+			display: none;
+		}
+		.link-information
+		{
+			display: none;
+		}
+		.link-hover-information
+		{
+			.link-hover-title
+			{
+				padding: 10px;
+				font-size: 16px;
+				color: white;
+			}
+			.link-hover-plot
+			{
+				padding: 0 10px 10px;
+				font-size: 14px;
+				color: white;
+			}
+			.link-hover-lists-container
+			{
+				padding: 0 10px;
+
+				.link-hover-list
+				{
+					margin-bottom: 5px;
+					color: white;
+
+					.link-hover-list-title
+					{
+						font-weight: bold;
+						padding-bottom: 3px;
+					}
+
+					.link-hover-list-content
+					{
+						.link-hover-list-item
+						{
+							display: inline-block;
+							padding-right: 5px;
+							font-size: 12px;
+						}
+					}
+				}
+			}
+			.link-hover-bottom-information
+			{
+				padding: 10px;
+				bottom: 0;
+				left: 0;
+				position: absolute;
+				width: 100%;
+				color: white;
+
+				.link-imdb-rating
+				{
+					text-align: left;
+
+					.link-imdb-votes
+					{
+						font-size: 12px;
+						color: $info-color;
+						padding-left: 1px;
+					}
+				}
+
+				.film-length
+				{
+					text-align: center;
+				}
+
+				.link-quality
+				{
+					text-align: right;
+				}
+			}
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: $transparent-color;
+		}
+	}
+	.link:after
+	{
+		content: '';
+		display: block;
+		margin-top: 130%;
+	}
+
+	.link-container
+	{
+		.title
+		{
+			color: white;
+			margin-top: 0;
+		}
+	}
+}

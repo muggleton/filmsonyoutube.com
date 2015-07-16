@@ -1,0 +1,6 @@
+/vendor
+/resources/bower
+/node_modules
+Homestead.yaml
+.env
+/public/assets/img/posters/[0-9]*.jpg

@@ -1,0 +1,201 @@
+<div ng-controller="linksController">
+	<div infinite-scroll="loadMore()" infinte-scroll-distance="3">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-lg-3 col-xs-12" ng-repeat="link in links">
+				<a href="<% link.url %>" class="link" ng-style="{'background-image':'url(/assets/img/posters/<% link.film.poster %>)'}">
+					<div class="link-title"><% link.film.title %> <span class="link-year">(<% link.film.year %>)</span></div>
+					
+					
+					<div class="link-information">
+						<div class="row">
+							<div class="col-xs-4 link-imdb-rating">
+								<i class="glyphicon glyphicon-star
+								"></i> <% link.film.imdb_rating %>
+							</div>
+							<div class="col-xs-4 film-length">
+								<i class="glyphicon glyphicon-time
+								"></i> <% link.film.runtime_minutes %> min
+							</div>
+							<div class="col-xs-4 link-quality">
+								<i class="glyphicon glyphicon-facetime-video"></i> <% link.resolution.amount %>p
+							</div>
+						</div>
+					</div>
+
+					<div class="link-hover-information">
+						<div class="link-hover-title"><% link.film.title %> <span class="link-year">(<% link.film.year %>)</div>
+						<div class="link-hover-plot"><% link.film.plot %></div>
+
+						<div class="link-hover-lists-container">
+							<div class="link-hover-list">
+								<div class="link-hover-list-title">Genres</div>
+								<div class="link-hover-list-content">
+									<div class="link-hover-list-item" ng-repeat="genre in link.film.genres">
+										<% genre.name %>
+									</div>
+								</div>
+							</div>
+
+							<div class="link-hover-list">
+								<div class="link-hover-list-title">Cast</div>
+								<div class="link-hover-list-content">
+									<div class="link-hover-list-item" ng-repeat="cast in link.film.cast">
+										<% cast.name %>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6 col-xs-12">
+									<div class="link-hover-list">
+										<div class="link-hover-list-title">Directors</div>
+										<div class="link-hover-list-content">
+											<div class="link-hover-list-item" ng-repeat="director in link.film.directors">
+												<% director.name %>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-xs-12">
+									<div class="link-hover-list">
+										<div class="link-hover-list-title">Languages</div>
+										<div class="link-hover-list-content">
+											<div class="link-hover-list-item" ng-repeat="language in link.film.languages">
+												<% language.name %>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="link-hover-bottom-information">
+							<div class="row">
+								<div class="col-xs-4 link-imdb-rating">
+									<i class="glyphicon glyphicon-star
+									"></i> <% link.film.imdb_rating %>
+								</div>
+								<div class="col-xs-4 film-length">
+									<i class="glyphicon glyphicon-time
+									"></i> <% link.film.runtime_minutes %> min
+								</div>
+								<div class="col-xs-4 link-quality">
+									<i class="glyphicon glyphicon-facetime-video"></i> <% link.resolution.amount %>p
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</a>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-8 col-sm-3 col-md-3 search-sidebar sidebar sidebar-right sidebar-animate sidebar-sm-show">
+		<div class="accordion" id="search-accordion">
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<div class="input-group">
+						<span class="input-group-addon" id="search-input-addon"><i class="glyphicon glyphicon-search"></i></span>
+						<input ng-model="search_term" ng-change="filterLinks()" ng-model-options="{debounce: 500}" type="text" class="form-control search-input" placeholder="Search" aria-describedby="search-input-addon"/>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#collapseOne" target="_self">
+						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Genre
+					</a>
+				</div>
+				<div id="collapseOne" class="accordion-body collapse in no-transition">
+					<div class="accordion-inner">
+						<div class="checkbox" ng-repeat="genre in sidebar.genres">
+							<label>
+								<input type="checkbox" name="<% genre.id %>" ng-model="genre.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% genre.name %>
+							</label>
+							<br />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#resolution-accordion"  target="_self">
+						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Resolution
+					</a>
+				</div>
+				<div id="resolution-accordion" class="accordion-body collapse no-transition">
+					<div class="accordion-inner">
+						<div class="checkbox" ng-repeat="resolution in sidebar.resolutions">
+							<label>
+								<input type="checkbox" name="<% resolution.id %>" ng-model="resolution.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% resolution.amount %>p
+							</label>
+							<br />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#language-accordion"  target="_self">
+						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Language
+					</a>
+				</div>
+				<div id="language-accordion" class="accordion-body collapse no-transition">
+					<div class="accordion-inner">
+						<div class="checkbox" ng-repeat="language in sidebar.languages">
+							<label>
+								<input type="checkbox" name="<% language.id %>" ng-model="language.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% language.name %>
+							</label>
+							<br />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#accordion-rating"  target="_self">
+						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> IMDB Rating
+					</a>
+				</div>
+				<div id="accordion-rating" class="accordion-body collapse no-transition">
+					<div class="accordion-inner">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="label">From</div>
+								<input ng-model="sidebar.rating.from" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" max="sidebar.rating.max" class="form-control" min="sidebar.rating.min" step="sidebar.rating.step" aria-describedby="search-input-addon"/>
+							</div>
+							<div class="col-xs-6">
+								<div class="label">To</div>
+								<input ng-model="sidebar.rating.to" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" class="form-control"  aria-describedby="search-input-addon" max="sidebar.rating.max" step="sidebar.rating.step" min="sidebar.rating.min"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#accordion-year"  target="_self">
+						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Year
+					</a>
+				</div>
+				<div id="accordion-year" class="accordion-body collapse no-transition">
+					<div class="accordion-inner">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="label">From</div>
+								<input ng-model="sidebar.year.from" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" max="sidebar.year.max" class="form-control" min="sidebar.year.min" step="sidebar.year.step" aria-describedby="search-input-addon"/>
+							</div>
+							<div class="col-xs-6">
+								<div class="label">To</div>
+								<input ng-model="sidebar.year.to" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" class="form-control"  aria-describedby="search-input-addon" max="sidebar.year.max" step="sidebar.year.step" min="sidebar.year.min"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>      
+	</div>
+
+</div>
