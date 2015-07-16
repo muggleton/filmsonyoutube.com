@@ -1,4 +1,4 @@
-app.service('sidebarService', function($http, $q){
+app.service('sidebarService', ['$http', '$q', function($http, $q){
 	return {
 		all: function() {
                 // the $http API is based on the deferred/promise APIs exposed by the $q service
@@ -18,4 +18,4 @@ app.service('sidebarService', function($http, $q){
                     });
             }
         };
-    });
+    }]);
