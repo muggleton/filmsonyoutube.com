@@ -1,4 +1,4 @@
-app.controller('linkController', function($scope, $routeParams, linkService){
+app.controller('linkController', ['$scope', '$routeParams', 'linkService', function($scope, $routeParams, linkService){
 
 	$scope.init = function() {
 		// Get all links
@@ -11,4 +11,4 @@ app.controller('linkController', function($scope, $routeParams, linkService){
 	}
 
 	$scope.init();
-});
+}]);

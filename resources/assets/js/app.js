@@ -1,5 +1,5 @@
 // Declare app and dependancies
-var app = angular.module('filmsonyoutube', ['ngRoute', 'angular-loading-bar', 'infinite-scroll'], function($interpolateProvider, $sceDelegateProvider, cfpLoadingBarProvider, $logProvider) {
+var app = angular.module('filmsonyoutube', ['ngRoute', 'angular-loading-bar', 'infinite-scroll'], ['$interpolateProvider', '$sceDelegateProvider', 'cfpLoadingBarProvider', function($interpolateProvider, $sceDelegateProvider, cfpLoadingBarProvider) {
 	$interpolateProvider.startSymbol('<%');
 	$interpolateProvider.endSymbol('%>');
 	// Whitelist Youtube URL
@@ -8,13 +8,10 @@ var app = angular.module('filmsonyoutube', ['ngRoute', 'angular-loading-bar', 'i
 	// Don't show loading bar spinner
 	cfpLoadingBarProvider.includeSpinner = false;
 
-	// Enable debugging
-	$logProvider.debugEnabled(true);
-
 	// Infinite scroll performance issues
 	angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 250)
 
-});
+}]);
 
 
 app.run(function(){
@@ -22,7 +19,7 @@ app.run(function(){
 });
 
  // Handle our routing
- app.config(function($routeProvider, $locationProvider){
+ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
  	// When on home route
  	$routeProvider.when('/',{
  		// Load index template
@@ -41,4 +38,4 @@ app.run(function(){
 
  	// use the HTML5 History API
  	$locationProvider.html5Mode(true);
- });
+ }]);

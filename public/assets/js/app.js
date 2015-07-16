@@ -1,5 +1,5 @@
 // Declare app and dependancies
-var app = angular.module('filmsonyoutube', ['ngRoute', 'angular-loading-bar', 'infinite-scroll'], function($interpolateProvider, $sceDelegateProvider, cfpLoadingBarProvider, $logProvider) {
+var app = angular.module('filmsonyoutube', ['ngRoute', 'angular-loading-bar', 'infinite-scroll'], ['$interpolateProvider', '$sceDelegateProvider', 'cfpLoadingBarProvider', function($interpolateProvider, $sceDelegateProvider, cfpLoadingBarProvider) {
 	$interpolateProvider.startSymbol('<%');
 	$interpolateProvider.endSymbol('%>');
 	// Whitelist Youtube URL
@@ -8,13 +8,10 @@ var app = angular.module('filmsonyoutube', ['ngRoute', 'angular-loading-bar', 'i
 	// Don't show loading bar spinner
 	cfpLoadingBarProvider.includeSpinner = false;
 
-	// Enable debugging
-	$logProvider.debugEnabled(true);
-
 	// Infinite scroll performance issues
 	angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 250)
 
-});
+}]);
 
 
 app.run(function(){
@@ -22,7 +19,7 @@ app.run(function(){
 });
 
  // Handle our routing
- app.config(function($routeProvider, $locationProvider){
+ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
  	// When on home route
  	$routeProvider.when('/',{
  		// Load index template
@@ -41,9 +38,11 @@ app.run(function(){
 
  	// use the HTML5 History API
  	$locationProvider.html5Mode(true);
- });
+ }]);
 
-app.controller('linkController', function($scope, $routeParams, linkService){
+
+
+app.controller('linkController', ['$scope', '$routeParams', 'linkService', function($scope, $routeParams, linkService){
 
 	$scope.init = function() {
 		// Get all links
@@ -56,8 +55,8 @@ app.controller('linkController', function($scope, $routeParams, linkService){
 	}
 
 	$scope.init();
-});
-app.controller('linksController', function($rootScope, $scope, $q,  $filter, linkService, sidebarService){
+}]);
+app.controller('linksController', ['$rootScope', '$scope', '$q', '$filter', 'linkService', 'sidebarService', function($rootScope, $scope, $q,  $filter, linkService, sidebarService){
 	$scope.links = [];
 	$scope.current_page = 1;
 	$scope.last_page = 0;
@@ -164,16 +163,14 @@ app.controller('linksController', function($rootScope, $scope, $q,  $filter, lin
 	$scope.init();
 
 
-});
+}]);
 
 app.controller('navigationController', function($scope, $location) {
 	$scope.isCurrent = function(route) {
 		return route === $location.path();
 	};
 });
-
-
-app.service('linkService', function($http){
+app.service('linkService', ['$http', function($http){
 	var search_results = [];
 
 	return {
@@ -187,7 +184,7 @@ app.service('linkService', function($http){
 			return request;
 		}
 	}
-});
+}]);
 app.service('sidebarService', function($http, $q){
 	return {
 		all: function() {

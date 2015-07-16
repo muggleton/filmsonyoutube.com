@@ -1,4 +1,4 @@
-app.controller('linksController', function($rootScope, $scope, $q,  $filter, linkService, sidebarService){
+app.controller('linksController', ['$rootScope', '$scope', '$q', '$filter', 'linkService', 'sidebarService', function($rootScope, $scope, $q,  $filter, linkService, sidebarService){
 	$scope.links = [];
 	$scope.current_page = 1;
 	$scope.last_page = 0;
@@ -105,4 +105,4 @@ app.controller('linksController', function($rootScope, $scope, $q,  $filter, lin
 	$scope.init();
 
 
-});
+}]);

@@ -1,4 +1,4 @@
-app.service('linkService', function($http){
+app.service('linkService', ['$http', function($http){
 	var search_results = [];
 
 	return {
@@ -12,4 +12,4 @@ app.service('linkService', function($http){
 			return request;
 		}
 	}
-});
+}]);
