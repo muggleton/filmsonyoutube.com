@@ -371,10 +371,15 @@ body
 		{
 			.link-stat
 			{
+				i
+				{
+					color: white;
+				}
 				display: inline-block;
 				padding-right: 5px;
 			}
-			padding-bottom: 10px;
+
+			padding-bottom: 12px;
 		}
 		.link-information-container
 		{
@@ -390,12 +395,13 @@ body
 					color: white;
 					font-weight: bold;
 					display: block;
-					padding-bottom: 2px;
+					padding-bottom: 4px;;
 				}
 				.link-information-entry
 				{
 					display: block;
 					padding-bottom: 1px;
+					font-size: 12px;
 				}
 			}
 		}

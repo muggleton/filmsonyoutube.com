@@ -6517,13 +6517,19 @@ a:hover {
   body
 .link-container
 .link-stats {
-    padding-bottom: 10px; }
+    padding-bottom: 12px; }
     body
 .link-container
 .link-stats
 .link-stat {
       display: inline-block;
       padding-right: 5px; }
+      body
+.link-container
+.link-stats
+.link-stat
+i {
+        color: white; }
   body
 .link-container
 .link-information-container {
@@ -6547,11 +6553,12 @@ a:hover {
         color: white;
         font-weight: bold;
         display: block;
-        padding-bottom: 2px; }
+        padding-bottom: 4px; }
       body
 .link-container
 .link-information-container
 .link-information
 .link-information-entry {
         display: block;
-        padding-bottom: 1px; }
+        padding-bottom: 1px;
+        font-size: 12px; }

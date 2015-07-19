@@ -91,69 +91,80 @@ class FetchFilmInformation extends Job implements SelfHandling, ShouldQueue
         }
 
         // Check if poster exists, if it does, save it 
-        $location = '';
-
-        if($response['Poster'] !== 'N/A' && $poster = file_get_contents($response['Poster']))
+        if($response['Poster'] !== 'N/A')
         {
-            $location = env('POSTER_PATH') . '/' . $this->link->id . '.jpg';
-            file_put_contents($location, $poster);
+            try
+            {
+
+                $poster = file_get_contents($response['Poster']);
+                $location = env('POSTER_PATH') . '/' . $this->link->id . '.jpg';
+                file_put_contents($location, $poster);
+            }
+            catch(Exception $e)
+            {
+                $location = '';
+            }
         }
+        else
+        {
+           $location = '';
+       }
 
         // Otherwise add the new film to our database
-        $film = Film::updateOrCreate(['imdb_id' => $response['imdbID']], [
-            'title'             => $response['Title'],
-            'year'              => $response['Year'],
-            'plot'              => $response['Plot'],
-            'poster'            => $location,
-            'imdb_rating'       => $response['imdbRating'],
-            'imdb_votes'        => $response['imdbVotes'],
-            'imdb_id'           => $response['imdbID'],
-            'runtime_minutes'   => Extract::number($response['Runtime'])
-            ]);
+       $film = Film::updateOrCreate(['imdb_id' => $response['imdbID']], [
+        'title'             => $response['Title'],
+        'year'              => $response['Year'],
+        'plot'              => $response['Plot'],
+        'poster'            => $location,
+        'imdb_rating'       => $response['imdbRating'],
+        'imdb_votes'        => $response['imdbVotes'],
+        'imdb_id'           => $response['imdbID'],
+        'runtime_minutes'   => Extract::number($response['Runtime'])
+        ]);
 
-        $this->link->film_id = $film->id;
-        $this->link->save();
+       $this->link->film_id = $film->id;
+       $this->link->save();
 
 
 
         // Genres
-        $genres = explode(',', $response['Genre']);
-        foreach($genres as $genre)
-        {
-            $genre = GenreAvailable::updateOrCreate(['name' => trim(rtrim($genre))]);
-            Genre::updateOrCreate(['film_id' => $film->id, 'genre_id' => $genre->id]);
-        }
+       $genres = explode(',', $response['Genre']);
+       foreach($genres as $genre)
+       {
+        $genre = GenreAvailable::updateOrCreate(['name' => trim(rtrim($genre))]);
+        Genre::updateOrCreate(['film_id' => $film->id, 'genre_id' => $genre->id]);
+    }
 
         // Language
-        $languages = explode(',', $response['Language']);
-        foreach($languages as $language)
-        {
-            $language = LanguageAvailable::updateOrCreate(['name' => trim(rtrim($language))]);
-            Language::updateOrCreate(['film_id' => $film->id, 'language_id' => $language->id]);
-        }
+    $languages = explode(',', $response['Language']);
+    foreach($languages as $language)
+    {
+        $language = LanguageAvailable::updateOrCreate(['name' => trim(rtrim($language))]);
+        Language::updateOrCreate(['film_id' => $film->id, 'language_id' => $language->id]);
+    }
 
         // Directors
-        $directors = explode(',', $response['Director']);
-        foreach($directors as $director)
-        {
-            $director = DirectorAvailable::updateOrCreate(['name' => trim(rtrim($director))]);
-            Director::updateOrCreate(['film_id' => $film->id, 'director_id' => $director->id]);
-        }
+    $directors = explode(',', $response['Director']);
+    foreach($directors as $director)
+    {
+        $director = DirectorAvailable::updateOrCreate(['name' => trim(rtrim($director))]);
+        Director::updateOrCreate(['film_id' => $film->id, 'director_id' => $director->id]);
+    }
 
         // Cast
-        $casts = explode(',', $response['Actors']);
-        foreach($casts as $cast)
-        {
-            $cast = CastAvailable::updateOrCreate(['name' => trim(rtrim($cast))]);
-            Cast::updateOrCreate(['film_id' => $film->id, 'cast_id' => $cast->id]);
-        }
+    $casts = explode(',', $response['Actors']);
+    foreach($casts as $cast)
+    {
+        $cast = CastAvailable::updateOrCreate(['name' => trim(rtrim($cast))]);
+        Cast::updateOrCreate(['film_id' => $film->id, 'cast_id' => $cast->id]);
+    }
 
         // Resolution
-        $resolution = ResolutionAvailable::updateOrCreate(['amount' => $this->resolution]);
-        Resolution::updateOrCreate(['link_id' => $this->link->id, 'resolution_id' => $resolution->id]);
-        
+    $resolution = ResolutionAvailable::updateOrCreate(['amount' => $this->resolution]);
+    Resolution::updateOrCreate(['link_id' => $this->link->id, 'resolution_id' => $resolution->id]);
+    
 
-        return $this->release();
-        
-    }
+    return $this->release();
+    
+}
 }

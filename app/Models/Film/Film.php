@@ -13,6 +13,8 @@ class Film extends Model
 
 	protected $appends = ['posterlink'];
 
+	protected $table = 'films';
+
 	public function links()
 	{
 		return $this->hasMany('FilmsOnYoutube\Models\Link\Link', 'film_id', 'id');
