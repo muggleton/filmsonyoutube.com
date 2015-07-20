@@ -6264,7 +6264,8 @@ body {
     height: 100%;
     background: #222;
     padding: 10px 12.5px 0;
-    top: 49px; }
+    top: 49px;
+    overflow: hidden; }
     body
 .search-sidebar
 #search-input-addon {
