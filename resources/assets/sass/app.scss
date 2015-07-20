@@ -143,89 +143,100 @@ body
 			box-shadow: none;
 			background: white;
 		}
-		.angular-accordion-container
+		.search-box
 		{
-			height: 100%;
+			height: 38px;
+		}
+		.filter-options
+		{
+			position: absolute;
+			top: 50px;
+			bottom: 0px;
 			width: 100%;
-
-			.angular-accordion-pane
+			.angular-accordion-container
 			{
+				height: 100%;
+				width: 100%;
 
-				background: transparent;
-				box-shadow: none;
-				margin: 0;
-
-
-				.number-input-container
+				.angular-accordion-pane
 				{
-					padding-top: 6px;
 
-					.label
+					background: transparent;
+					box-shadow: none;
+					margin: 0;
+
+
+					.number-input-container
 					{
-						padding: 0;
-						padding-bottom: 5px;
-						color: $font-color;
+						padding-top: 6px;
+
+						.label
+						{
+							padding: 0;
+							padding-bottom: 5px;
+							color: $font-color;
+						}
+						.number-input
+						{
+							background: $background-color;
+							border: none;
+							font-size: 12px;
+						}
+						.number-input:focus
+						{
+							box-shadow: none;
+							background: white;
+						}
 					}
-					.number-input
-					{
-						background: $background-color;
-						border: none;
-						font-size: 12px;
-					}
-					.number-input:focus
-					{
-						box-shadow: none;
-						background: white;
-					}
-				}
 
-				.angular-accordion-header
-				{
-					padding: 12px 0 6px;
-
-					color: $link-color;
-					text-decoration: none; 
-					font-weight: 500;
-					font-size: 14px;
-
-					.icon-collapsed
+					.angular-accordion-header
 					{
-						display: inline-block;
+						padding: 12px 0 6px;
+
+						color: $link-color;
+						text-decoration: none; 
+						font-weight: 500;
 						font-size: 14px;
-						line-height: 1.3;
-					}
-					.icon-open
-					{
-						display: none;
-						font-size: 14px;
-						line-height: 1.3;
-					}
-				}
-				.angular-accordion-header.angularaccordionheaderselected
-				{
-					.icon-collapsed
-					{
-						display: none;
-					}
-					.icon-open
-					{
-						display: inline-block;
-					}
-				}
-				.angular-accordion-header:hover
-				{
-					color: white;
 
-					cursor: pointer;
+						.icon-collapsed
+						{
+							display: inline-block;
+							font-size: 14px;
+							line-height: 1.3;
+						}
+						.icon-open
+						{
+							display: none;
+							font-size: 14px;
+							line-height: 1.3;
+						}
+					}
+					.angular-accordion-header.angularaccordionheaderselected
+					{
+						.icon-collapsed
+						{
+							display: none;
+						}
+						.icon-open
+						{
+							display: inline-block;
+						}
+					}
+					.angular-accordion-header:hover
+					{
+						color: white;
+
+						cursor: pointer;
+					}
 				}
-			}
-			.angular-accordion-pane-content
-			{
-				padding: 0 10px 0 0;
-				overflow-y: auto;
-				.checkbox
+				.angular-accordion-pane-content
 				{
-					margin-top: 5px;
+					padding: 0 10px 0 0;
+					overflow-y: auto;
+					.checkbox
+					{
+						margin-top: 5px;
+					}
 				}
 			}
 		}

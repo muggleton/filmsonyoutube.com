@@ -6289,109 +6289,134 @@ body {
       background: white; }
     body
 .search-sidebar
-.angular-accordion-container {
-      height: 100%;
+.search-box {
+      height: 38px; }
+    body
+.search-sidebar
+.filter-options {
+      position: absolute;
+      top: 50px;
+      bottom: 0px;
       width: 100%; }
       body
 .search-sidebar
-.angular-accordion-container
-.angular-accordion-pane {
-        background: transparent;
-        box-shadow: none;
-        margin: 0; }
+.filter-options
+.angular-accordion-container {
+        height: 100%;
+        width: 100%; }
         body
 .search-sidebar
+.filter-options
+.angular-accordion-container
+.angular-accordion-pane {
+          background: transparent;
+          box-shadow: none;
+          margin: 0; }
+          body
+.search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .number-input-container {
-          padding-top: 6px; }
-          body
+            padding-top: 6px; }
+            body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .number-input-container
 .label {
-            padding: 0;
-            padding-bottom: 5px;
-            color: #999; }
-          body
+              padding: 0;
+              padding-bottom: 5px;
+              color: #999; }
+            body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .number-input-container
 .number-input {
-            background: #333;
-            border: none;
-            font-size: 12px; }
-          body
+              background: #333;
+              border: none;
+              font-size: 12px; }
+            body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .number-input-container
 .number-input:focus {
-            box-shadow: none;
-            background: white; }
-        body
+              box-shadow: none;
+              background: white; }
+          body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .angular-accordion-header {
-          padding: 12px 0 6px;
-          color: #888;
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 14px; }
-          body
+            padding: 12px 0 6px;
+            color: #888;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px; }
+            body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .angular-accordion-header
 .icon-collapsed {
-            display: inline-block;
-            font-size: 14px;
-            line-height: 1.3; }
-          body
+              display: inline-block;
+              font-size: 14px;
+              line-height: 1.3; }
+            body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .angular-accordion-header
 .icon-open {
-            display: none;
-            font-size: 14px;
-            line-height: 1.3; }
-        body
+              display: none;
+              font-size: 14px;
+              line-height: 1.3; }
+          body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .angular-accordion-header.angularaccordionheaderselected
 .icon-collapsed {
-          display: none; }
-        body
+            display: none; }
+          body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .angular-accordion-header.angularaccordionheaderselected
 .icon-open {
-          display: inline-block; }
-        body
+            display: inline-block; }
+          body
 .search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .angular-accordion-header:hover {
-          color: white;
-          cursor: pointer; }
-      body
-.search-sidebar
-.angular-accordion-container
-.angular-accordion-pane-content {
-        padding: 0 10px 0 0;
-        overflow-y: auto; }
+            color: white;
+            cursor: pointer; }
         body
 .search-sidebar
+.filter-options
+.angular-accordion-container
+.angular-accordion-pane-content {
+          padding: 0 10px 0 0;
+          overflow-y: auto; }
+          body
+.search-sidebar
+.filter-options
 .angular-accordion-container
 .angular-accordion-pane-content
 .checkbox {
-          margin-top: 5px; }
+            margin-top: 5px; }
   body
 .link {
     position: relative;

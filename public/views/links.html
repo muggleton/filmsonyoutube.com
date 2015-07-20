@@ -94,37 +94,36 @@
 	</div>
 
 	<div class="col-xs-8 col-sm-3 col-md-3 search-sidebar sidebar sidebar-right sidebar-animate sidebar-sm-show">
-		<angular-accordion>
-		<pane>
-			<pane-header>
+		<div class="search-box">
 			<div class="input-group">
 				<span class="input-group-addon" id="search-input-addon"><i class="glyphicon glyphicon-search"></i></span>
 				<input ng-model="search_term" ng-change="filterLinks()" ng-model-options="{debounce: 500}" type="text" class="form-control search-input" placeholder="Search" aria-describedby="search-input-addon"/>
 			</div>
-		</pane-header>
+		</div>
+		<div class="filter-options">
+			<angular-accordion>
+			<pane>
+				<pane-header>
+				<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Genres
+			</pane-header>
+			<pane-content>
+			<div class="checkbox" ng-repeat="genre in sidebar.genres">
+				<label>
+					<input type="checkbox" name="<% genre.id %>" ng-model="genre.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% genre.name %>
+				</label>
+			</div>
+		</pane-content>
 	</pane>
 	<pane>
 		<pane-header>
-		<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Genres
+		<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Resolution
 	</pane-header>
 	<pane-content>
-	<div class="checkbox" ng-repeat="genre in sidebar.genres">
+	<div class="checkbox" ng-repeat="resolution in sidebar.resolutions">
 		<label>
-			<input type="checkbox" name="<% genre.id %>" ng-model="genre.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% genre.name %>
+			<input type="checkbox" name="<% resolution.id %>" ng-model="resolution.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% resolution.amount %>p
 		</label>
 	</div>
-</pane-content>
-</pane>
-<pane>
-	<pane-header>
-	<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Resolution
-</pane-header>
-<pane-content>
-<div class="checkbox" ng-repeat="resolution in sidebar.resolutions">
-	<label>
-		<input type="checkbox" name="<% resolution.id %>" ng-model="resolution.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% resolution.amount %>p
-	</label>
-</div>
 </pane-content>
 </pane>
 <pane>
@@ -171,6 +170,7 @@
 </pane-content>
 </pane>
 </angular-accordion>
+</div>
 </div>
 
 </div>
