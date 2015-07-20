@@ -89,138 +89,88 @@
 				</a>
 
 			</div>
-			<div class="no-links" ng-show="!links.length && !busy" ><i class="glyphicon glyphicon-exclamation-sign"></i> Sorry, we could not find any films.</div>
+			<div class="no-links" ng-show="!links.length && !busy" >Sorry, we could not find any films.</div>
 		</div>
 	</div>
 
 	<div class="col-xs-8 col-sm-3 col-md-3 search-sidebar sidebar sidebar-right sidebar-animate sidebar-sm-show">
-		<div class="input-group">
-			<span class="input-group-addon" id="search-input-addon"><i class="glyphicon glyphicon-search"></i></span>
-			<input ng-model="search_term" ng-change="filterLinks()" ng-model-options="{debounce: 500}" type="text" class="form-control search-input" placeholder="Search" aria-describedby="search-input-addon"/>
-		</div>
-
-
-		<div class="panel-group" id="filter-accordion" role="tablist" aria-multiselectable="true">
-
-
-			<div class="panel">
-
-				<div class="panel-heading" role="tab">
-					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-genre" target="_self" aria-controls="accordion-genre">
-						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Genre
-					</a>
-				</div>
-
-				<div id="accordion-genre" class="panel-collapse collapse" role="tabpanel" >
-					<div class="accordion-inner">
-						<div class="checkbox" ng-repeat="genre in sidebar.genres">
-							<label>
-								<input type="checkbox" name="<% genre.id %>" ng-model="genre.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% genre.name %>
-							</label>
-							<br />
-						</div>
-					</div>
-				</div>
-
+		<angular-accordion>
+		<pane>
+			<pane-header>
+			<div class="input-group">
+				<span class="input-group-addon" id="search-input-addon"><i class="glyphicon glyphicon-search"></i></span>
+				<input ng-model="search_term" ng-change="filterLinks()" ng-model-options="{debounce: 500}" type="text" class="form-control search-input" placeholder="Search" aria-describedby="search-input-addon"/>
 			</div>
-
-
-			<div class="panel">
-
-				<div class="panel-heading" role="tab">
-					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-resolution"  target="_self" aria-controls="accordion-resolution">
-						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Resolution
-					</a>
-				</div>
-
-				<div id="accordion-resolution" class="panel-collapse collapse" role="tabpanel" >
-					<div class="accordion-inner">
-						<div class="checkbox" ng-repeat="resolution in sidebar.resolutions">
-							<label>
-								<input type="checkbox" name="<% resolution.id %>" ng-model="resolution.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% resolution.amount %>p
-							</label>
-							<br />
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-
-			<div class="panel">
-
-				<div class="panel-heading" role="tab">
-					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-language"  target="_self" aria-controls="accordion-language">
-						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Language
-					</a>
-				</div>
-
-				<div id="accordion-language" class="panel-collapse collapse" role="tabpanel" >
-					<div class="accordion-inner">
-						<div class="checkbox" ng-repeat="language in sidebar.languages">
-							<label>
-								<input type="checkbox" name="<% language.id %>" ng-model="language.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% language.name %>
-							</label>
-							<br />
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="panel">
-
-				<div class="panel-heading" role="tab">
-					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-rating"  target="_self" aria-controls="accordion-rating">
-						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> IMDB Rating
-					</a>
-				</div>
-
-				<div id="accordion-rating" class="panel-collapse collapse" role="tabpanel" >
-					<div class="accordion-inner">
-						<div class="row">
-							<div class="col-xs-6">
-								<div class="label">From</div>
-								<input ng-model="sidebar.rating.from" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" max="sidebar.rating.max" class="form-control" min="sidebar.rating.min" step="sidebar.rating.step" aria-describedby="search-input-addon"/>
-							</div>
-							<div class="col-xs-6">
-								<div class="label">To</div>
-								<input ng-model="sidebar.rating.to" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" class="form-control"  aria-describedby="search-input-addon" max="sidebar.rating.max" step="sidebar.rating.step" min="sidebar.rating.min"/>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="panel">
-
-				<div class="panel-heading" role="tab">
-					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-year" target="_self" aria-controls="accordion-year">
-						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Year
-					</a>
-
-				</div>
-
-				<div id="accordion-year" class="panel-collapse collapse" role="tabpanel" >
-					<div class="accordion-inner">
-						<div class="row">
-							<div class="col-xs-6">
-								<div class="label">From</div>
-								<input ng-model="sidebar.year.from" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" max="sidebar.year.max" class="form-control" min="sidebar.year.min" step="sidebar.year.step" aria-describedby="search-input-addon"/>
-							</div>
-							<div class="col-xs-6">
-								<div class="label">To</div>
-								<input ng-model="sidebar.year.to" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" class="form-control"  aria-describedby="search-input-addon" max="sidebar.year.max" step="sidebar.year.step" min="sidebar.year.min"/>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-
-		</div>  
+		</pane-header>
+	</pane>
+	<pane>
+		<pane-header>
+		<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Genres
+	</pane-header>
+	<pane-content>
+	<div class="checkbox" ng-repeat="genre in sidebar.genres">
+		<label>
+			<input type="checkbox" name="<% genre.id %>" ng-model="genre.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% genre.name %>
+		</label>
 	</div>
+</pane-content>
+</pane>
+<pane>
+	<pane-header>
+	<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Resolution
+</pane-header>
+<pane-content>
+<div class="checkbox" ng-repeat="resolution in sidebar.resolutions">
+	<label>
+		<input type="checkbox" name="<% resolution.id %>" ng-model="resolution.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% resolution.amount %>p
+	</label>
+</div>
+</pane-content>
+</pane>
+<pane>
+	<pane-header>
+	<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Language
+</pane-header>
+<pane-content>
+<div class="checkbox" ng-repeat="language in sidebar.languages">
+	<label>
+		<input type="checkbox" name="<% language.id %>" ng-model="language.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% language.name %>
+	</label>
+</div>
+</pane-content>
+</pane>
+<pane>
+	<pane-header>
+	<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> IMDB Rating
+</pane-header>
+<pane-content>
+<div class="number-input-container">
+	<div class="label">From</div>
+	<input ng-model="sidebar.rating.from" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" max="sidebar.rating.max" class="form-control number-input" min="sidebar.rating.min" step="sidebar.rating.step" aria-describedby="search-input-addon"/>
+</div>
+
+<div class="number-input-container">
+	<div class="label">To</div>
+	<input ng-model="sidebar.rating.to" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" class="form-control number-input"  aria-describedby="search-input-addon" max="sidebar.rating.max" step="sidebar.rating.step" min="sidebar.rating.min"/>
+</div>
+</pane-content>
+</pane>
+<pane>
+	<pane-header>
+	<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Year
+</pane-header>
+<pane-content>
+<div class="number-input-container">
+	<div class="label">From</div>
+	<input ng-model="sidebar.year.from" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" max="sidebar.year.max" class="form-control number-input" min="sidebar.year.min" step="sidebar.year.step" aria-describedby="search-input-addon"/>
+</div>
+<div class="number-input-container">
+	<div class="label">To</div>
+	<input ng-model="sidebar.year.to" ng-change="filterLinks()" ng-model-options="{debounce: 1000}" type="number" class="form-control number-input"  aria-describedby="search-input-addon" max="sidebar.year.max" step="sidebar.year.step" min="sidebar.year.min"/>
+</div>
+</pane-content>
+</pane>
+</angular-accordion>
+</div>
 
 </div>

@@ -1,5 +1,5 @@
 // Declare app and dependancies
-var app = angular.module('filmsonyoutube', ['ngRoute', 'angular-loading-bar', 'infinite-scroll'], ['$interpolateProvider', '$sceDelegateProvider', 'cfpLoadingBarProvider', function($interpolateProvider, $sceDelegateProvider, cfpLoadingBarProvider) {
+var app = angular.module('filmsonyoutube', ['ngRoute', 'angular-loading-bar', 'infinite-scroll', 'angular-accordion'], ['$interpolateProvider', '$sceDelegateProvider', 'cfpLoadingBarProvider', function($interpolateProvider, $sceDelegateProvider, cfpLoadingBarProvider) {
 	$interpolateProvider.startSymbol('<%');
 	$interpolateProvider.endSymbol('%>');
 	// Whitelist Youtube URL
