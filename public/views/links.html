@@ -98,10 +98,10 @@
 			<span class="input-group-addon" id="search-input-addon"><i class="glyphicon glyphicon-search"></i></span>
 			<input ng-model="search_term" ng-change="filterLinks()" ng-model-options="{debounce: 500}" type="text" class="form-control search-input" placeholder="Search" aria-describedby="search-input-addon"/>
 		</div>
-		<div class="accordion" id="search-accordion"  role="tablist" aria-multiselectable="true">
+		<div class="accordion" id="filter-accordion"  role="tablist" aria-multiselectable="true">
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#genre-accordion" target="_self">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#genre-accordion" target="_self">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Genre
 					</a>
 				</div>
@@ -118,7 +118,7 @@
 			</div>
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#resolution-accordion"  target="_self">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#resolution-accordion"  target="_self">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Resolution
 					</a>
 				</div>
@@ -135,7 +135,7 @@
 			</div>
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#language-accordion"  target="_self">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#language-accordion"  target="_self">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Language
 					</a>
 				</div>
@@ -152,7 +152,7 @@
 			</div>
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#accordion-rating"  target="_self">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-rating"  target="_self">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> IMDB Rating
 					</a>
 				</div>
@@ -173,7 +173,7 @@
 			</div>
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#accordion-year"  target="_self">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-year"  target="_self">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Year
 					</a>
 				</div>
