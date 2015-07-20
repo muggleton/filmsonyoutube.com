@@ -98,14 +98,20 @@
 			<span class="input-group-addon" id="search-input-addon"><i class="glyphicon glyphicon-search"></i></span>
 			<input ng-model="search_term" ng-change="filterLinks()" ng-model-options="{debounce: 500}" type="text" class="form-control search-input" placeholder="Search" aria-describedby="search-input-addon"/>
 		</div>
-		<div class="accordion" id="filter-accordion"  role="tablist" aria-multiselectable="true">
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#genre-accordion" target="_self">
+
+
+		<div class="panel-group" id="filter-accordion" role="tablist" aria-multiselectable="true">
+
+
+			<div class="panel">
+
+				<div class="panel-heading" role="tab">
+					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-genre" target="_self" aria-controls="accordion-genre">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Genre
 					</a>
 				</div>
-				<div id="genre-accordion" class="accordion-body collapse in no-transition">
+
+				<div id="accordion-genre" class="panel-collapse collapse" role="tabpanel" >
 					<div class="accordion-inner">
 						<div class="checkbox" ng-repeat="genre in sidebar.genres">
 							<label>
@@ -115,14 +121,19 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#resolution-accordion"  target="_self">
+
+
+			<div class="panel">
+
+				<div class="panel-heading" role="tab">
+					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-resolution"  target="_self" aria-controls="accordion-resolution">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Resolution
 					</a>
 				</div>
-				<div id="resolution-accordion" class="accordion-body collapse no-transition">
+
+				<div id="accordion-resolution" class="panel-collapse collapse" role="tabpanel" >
 					<div class="accordion-inner">
 						<div class="checkbox" ng-repeat="resolution in sidebar.resolutions">
 							<label>
@@ -132,14 +143,19 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#language-accordion"  target="_self">
+
+
+			<div class="panel">
+
+				<div class="panel-heading" role="tab">
+					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-language"  target="_self" aria-controls="accordion-language">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Language
 					</a>
 				</div>
-				<div id="language-accordion" class="accordion-body collapse no-transition">
+
+				<div id="accordion-language" class="panel-collapse collapse" role="tabpanel" >
 					<div class="accordion-inner">
 						<div class="checkbox" ng-repeat="language in sidebar.languages">
 							<label>
@@ -149,14 +165,18 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-rating"  target="_self">
+
+			<div class="panel">
+
+				<div class="panel-heading" role="tab">
+					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-rating"  target="_self" aria-controls="accordion-rating">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> IMDB Rating
 					</a>
 				</div>
-				<div id="accordion-rating" class="accordion-body collapse no-transition">
+
+				<div id="accordion-rating" class="panel-collapse collapse" role="tabpanel" >
 					<div class="accordion-inner">
 						<div class="row">
 							<div class="col-xs-6">
@@ -170,14 +190,19 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-year"  target="_self">
+
+			<div class="panel">
+
+				<div class="panel-heading" role="tab">
+					<a class="accordion-toggle" role="button"  data-toggle="collapse" data-parent="#filter-accordion" href="#accordion-year" target="_self" aria-controls="accordion-year">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Year
 					</a>
+
 				</div>
-				<div id="accordion-year" class="accordion-body collapse no-transition">
+
+				<div id="accordion-year" class="panel-collapse collapse" role="tabpanel" >
 					<div class="accordion-inner">
 						<div class="row">
 							<div class="col-xs-6">
@@ -191,8 +216,11 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
-		</div>      
+
+
+		</div>  
 	</div>
 
 </div>
