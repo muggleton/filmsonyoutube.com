@@ -136,12 +136,14 @@ body
 			border: none;
 			font-weight: normal;
 			background: $background-color;
+			color: white;
 		}
 
 		.search-input:focus
 		{
 			box-shadow: none;
 			background: white;
+			color: $font-color;
 		}
 		.search-box
 		{
@@ -149,7 +151,7 @@ body
 		}
 		.filter-options
 		{
-			height: calc(100% - 30px);
+			height: calc(100% - 10px);
 			width: 100%;
 
 			.angular-accordion-container
@@ -180,11 +182,13 @@ body
 							background: $background-color;
 							border: none;
 							font-size: 12px;
+							color: white;
 						}
 						.number-input:focus
 						{
 							box-shadow: none;
 							background: white;
+							color: $font-color;
 						}
 					}
 

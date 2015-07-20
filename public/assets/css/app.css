@@ -6281,12 +6281,14 @@ body {
       border-radius: 10px;
       border: none;
       font-weight: normal;
-      background: #333; }
+      background: #333;
+      color: white; }
     body
 .search-sidebar
 .search-input:focus {
       box-shadow: none;
-      background: white; }
+      background: white;
+      color: #999; }
     body
 .search-sidebar
 .search-box {
@@ -6294,7 +6296,7 @@ body {
     body
 .search-sidebar
 .filter-options {
-      height: calc(100% - 30px);
+      height: calc(100% - 10px);
       width: 100%; }
       body
 .search-sidebar
@@ -6336,7 +6338,8 @@ body {
 .number-input {
               background: #333;
               border: none;
-              font-size: 12px; }
+              font-size: 12px;
+              color: white; }
             body
 .search-sidebar
 .filter-options
@@ -6345,7 +6348,8 @@ body {
 .number-input-container
 .number-input:focus {
               box-shadow: none;
-              background: white; }
+              background: white;
+              color: #999; }
           body
 .search-sidebar
 .filter-options
