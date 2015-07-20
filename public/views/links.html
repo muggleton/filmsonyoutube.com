@@ -108,9 +108,8 @@
 			</pane-header>
 			<pane-content>
 			<div class="checkbox" ng-repeat="genre in sidebar.genres">
-				<label>
-					<input type="checkbox" name="<% genre.id %>" ng-model="genre.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% genre.name %>
-				</label>
+				<input type="checkbox" id="checkbox-genre-<% genre.id %>" name="<% genre.id %>" ng-model="genre.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}">
+				<label for="checkbox-genre-<% genre.id %>"> <% genre.name %> </label>
 			</div>
 		</pane-content>
 	</pane>
@@ -120,9 +119,8 @@
 	</pane-header>
 	<pane-content>
 	<div class="checkbox" ng-repeat="resolution in sidebar.resolutions">
-		<label>
-			<input type="checkbox" name="<% resolution.id %>" ng-model="resolution.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% resolution.amount %>p
-		</label>
+		<input type="checkbox" id="checkbox-resolution-<% resolution.id %>" name="<% resolution.id %>" ng-model="resolution.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> 
+		<label for="checkbox-resolution-<% resolution.id %>"><% resolution.amount %>p</label>
 	</div>
 </pane-content>
 </pane>
@@ -132,9 +130,8 @@
 </pane-header>
 <pane-content>
 <div class="checkbox" ng-repeat="language in sidebar.languages">
-	<label>
-		<input type="checkbox" name="<% language.id %>" ng-model="language.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> <% language.name %>
-	</label>
+	<input type="checkbox" name="<% language.id %>" id="checkbox-language-<% language.id %>" ng-model="language.checked" ng-change="filterLinks()" ng-model-options="{debounce: 1000}"> 
+	<label for="checkbox-language-<% language.id %>"><%language.name %></label>
 </div>
 </pane-content>
 </pane>

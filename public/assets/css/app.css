@@ -6294,9 +6294,7 @@ body {
     body
 .search-sidebar
 .filter-options {
-      position: absolute;
-      top: 50px;
-      bottom: 0px;
+      height: calc(100% - 30px);
       width: 100%; }
       body
 .search-sidebar
@@ -6408,7 +6406,6 @@ body {
 .filter-options
 .angular-accordion-container
 .angular-accordion-pane-content {
-          padding: 0 10px 0 0;
           overflow-y: auto; }
           body
 .search-sidebar
@@ -6642,3 +6639,73 @@ i {
         display: block;
         padding-bottom: 1px;
         font-size: 12px; }
+
+/** Checkboxes **/
+.checkbox {
+  padding-left: 20px; }
+
+.checkbox label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px; }
+
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-color: #333;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out; }
+
+.checkbox label::after {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  top: 0;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 1px;
+  font-size: 11px;
+  color: white; }
+
+.checkbox input[type="checkbox"] {
+  opacity: 0;
+  z-index: 1; }
+
+.checkbox input[type="checkbox"]:focus + label::before {
+  outline: none; }
+
+.checkbox input[type="checkbox"]:checked + label::after,
+.checkbox input[type="radio"]:checked + label::after {
+  font-family: "FontAwesome";
+  content: "\f00c"; }
+
+.checkbox.checkbox-inline {
+  margin-top: 0; }
+
+.checkbox-info input[type="checkbox"]:checked + label::before,
+.checkbox-info input[type="radio"]:checked + label::before {
+  background-color: #5bc0de;
+  border-color: #5bc0de; }
+
+.checkbox-info input[type="checkbox"]:checked + label::after,
+.checkbox-info input[type="radio"]:checked + label::after {
+  color: #fff; }
+
+input[type="checkbox"].styled:checked + label:after {
+  font-family: 'FontAwesome';
+  content: "\f00c"; }
+
+input[type="checkbox"] .styled:checked + label::before {
+  color: #fff; }
+
+input[type="checkbox"] .styled:checked + label::after {
+  color: #fff; }
