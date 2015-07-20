@@ -11,15 +11,17 @@ app.controller('linkController', ['$scope', '$routeParams', 'linkService', 'Page
 
 			$scope.link = response;
 			
-			if($scope.link.length)
+			if (typeof response.film.title === 'undefined') 
 			{
-				// Movie found
-				console.log('found');
-				Page.setTitle(response.film.title + ' (' + response.film.year + ')');
+				// Movie not found
+				$scope.notFound = true;
+
 			}
 			else
 			{
-				$scope.notFound = true;
+
+				Page.setTitle(response.film.title + ' (' + response.film.year + ')');
+				$scope.notFound = false;
 			}
 		});
 	}
