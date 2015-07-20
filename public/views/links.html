@@ -94,22 +94,18 @@
 	</div>
 
 	<div class="col-xs-8 col-sm-3 col-md-3 search-sidebar sidebar sidebar-right sidebar-animate sidebar-sm-show">
-		<div class="accordion" id="search-accordion">
+		<div class="input-group">
+			<span class="input-group-addon" id="search-input-addon"><i class="glyphicon glyphicon-search"></i></span>
+			<input ng-model="search_term" ng-change="filterLinks()" ng-model-options="{debounce: 500}" type="text" class="form-control search-input" placeholder="Search" aria-describedby="search-input-addon"/>
+		</div>
+		<div class="accordion" id="search-accordion"  role="tablist" aria-multiselectable="true">
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<div class="input-group">
-						<span class="input-group-addon" id="search-input-addon"><i class="glyphicon glyphicon-search"></i></span>
-						<input ng-model="search_term" ng-change="filterLinks()" ng-model-options="{debounce: 500}" type="text" class="form-control search-input" placeholder="Search" aria-describedby="search-input-addon"/>
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#collapseOne" target="_self">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-accordion" href="#genre-accordion" target="_self">
 						<i class="glyphicon glyphicon-chevron-right icon-collapsed"></i> <i class="glyphicon glyphicon-chevron-down icon-open"></i> Genre
 					</a>
 				</div>
-				<div id="collapseOne" class="accordion-body collapse in no-transition">
+				<div id="genre-accordion" class="accordion-body collapse in no-transition">
 					<div class="accordion-inner">
 						<div class="checkbox" ng-repeat="genre in sidebar.genres">
 							<label>
