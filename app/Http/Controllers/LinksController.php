@@ -103,7 +103,7 @@ class LinksController extends Controller
     public function show($id)
     {
         // Find link
-        $link = Link::whereId($id)->with('resolution', 'film.genres', 'film.languages', 'film.directors', 'film.cast')->first();
+        return Link::whereId($id)->with('resolution', 'film.genres', 'film.languages', 'film.directors', 'film.cast')->first();
     }
 
 }
