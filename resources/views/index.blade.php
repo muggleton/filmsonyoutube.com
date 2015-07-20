@@ -37,9 +37,9 @@
 
       </div>
       <div class="container-fluid" id="view" ng-view>
-        @yield('content')
+       
       </div>
-
+      @yield('content')
       <script src="/assets/js/vendor/vendor.js"></script>
       <script src="/assets/js/vendor/angular-route.min.js"></script>
       <script src="/assets/js/app.js"></script>
