@@ -12,6 +12,7 @@
 // Common colors
 $background-color: #333;
 $topbar-color: #222;
+$topbar-dark-color: #1C1C1C;
 $font-color: #999;
 $link-color: #888;
 $info-color: #aaa;
@@ -116,7 +117,7 @@ body
 	{
 		height: 100%;
 		background: $topbar-color;
-		padding: 10px 12.5px 0;
+		padding: 10px 0 0;
 		top: 49px;
 		overflow: hidden;
 
@@ -148,11 +149,12 @@ body
 		}
 		.search-box
 		{
-			height: 38px;
+			height: 48px;
+			padding: 0 12.5px;
 		}
 		.filter-options
 		{
-			height: calc(100% - 10px);
+			height: calc(100% - 2px);
 			width: 100%;
 
 			.angular-accordion-container
@@ -166,7 +168,6 @@ body
 					background: transparent;
 					box-shadow: none;
 					margin: 0;
-
 
 					.number-input-container
 					{
@@ -195,7 +196,7 @@ body
 
 					.angular-accordion-header
 					{
-						padding: 12px 0 6px;
+						padding: 12px 12.5px;
 
 						color: $link-color;
 						text-decoration: none; 
@@ -215,8 +216,14 @@ body
 							line-height: 1.3;
 						}
 					}
+					.angular-accordion-header:hover
+					{
+						background: $topbar-dark-color;
+					}
 					.angular-accordion-header.angularaccordionheaderselected
 					{
+						background: $topbar-dark-color;
+
 						.icon-collapsed
 						{
 							display: none;
@@ -235,6 +242,8 @@ body
 				}
 				.angular-accordion-pane-content
 				{
+					background: $topbar-dark-color;
+					padding: 0 12.5px;
 					overflow-y: auto;
 					.checkbox
 					{
