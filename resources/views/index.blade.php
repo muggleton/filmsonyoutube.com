@@ -37,7 +37,7 @@
 
       </div>
       <div class="container-fluid" id="view" ng-view>
-
+        @yield('content')
       </div>
 
       <script src="/assets/js/vendor/vendor.js"></script>

@@ -62,7 +62,6 @@ app.controller('linksController', ['$rootScope', '$scope', '$q', '$filter', 'lin
 	$scope.search_term = '';
 	$scope.sidebar = [];
 	$scope.sidebar.rating = [];
-	$scope.range = [];
 
 	$scope.genres_query_string = '';
 	$scope.languages_query_string = '';
