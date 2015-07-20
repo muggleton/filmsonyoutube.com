@@ -44,7 +44,7 @@
 </div>
 <div class="row">
 	<div class="col-xs-12">
-		<div class="no-links" ng-cloak ng-hide="link.title.length || busy" >Sorry, we could not find the film you were looking for.</div>
+		<div class="no-links" ng-cloak ng-show="notFound" >Sorry, we could not find the film you were looking for.</div>
 
 		<div class="embed-responsive embed-responsive-16by9">
 			<iframe class="embed-responsive-item" ng-src="<%link.embed%>" allowfullscreen=""></iframe>

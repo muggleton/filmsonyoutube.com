@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="filmsonyoutube">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>FilmsOnYoutube</title>
+  <title ng-controller="titleController" ng-bind="Page.title()"></title>
   <link rel="stylesheet" href="/assets/css/app.css" />
 
 
@@ -17,7 +17,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
-    <body ng-app="filmsonyoutube">
+    <body>
 
       <nav class="navbar navbar-default navbar-fixed-top" id="topbar" ng-controller="navigationController">
         <div class="container-fluid">
@@ -37,7 +37,7 @@
 
       </div>
       <div class="container-fluid" id="view" ng-view>
-       
+
       </div>
       
       @yield('content')

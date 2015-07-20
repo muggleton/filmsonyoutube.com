@@ -40,17 +40,28 @@ app.run(function(){
  	$locationProvider.html5Mode(true);
  }]);
 
-app.controller('linkController', ['$scope', '$routeParams', 'linkService', function($scope, $routeParams, linkService){
-	$scope.busy = true;
-
+app.controller('linkController', ['$scope', '$routeParams', 'linkService', 'Page', function($scope, $routeParams, linkService, Page){
+	$scope.notFound = false;
+	$scope.link = [];
 	$scope.init = function() {
 		// Get all links
 		var link = linkService.get($routeParams.id);
-		
+
 		// If it is successful
 		link.success(function(response){
+
 			$scope.link = response;
-			$scope.busy = false;
+			
+			if($scope.link.length)
+			{
+				// Movie found
+				console.log('found');
+				Page.setTitle(response.film.title + ' (' + response.film.year + ')');
+			}
+			else
+			{
+				$scope.notFound = true;
+			}
 		});
 	}
 
@@ -168,6 +179,9 @@ app.controller('navigationController', ['$scope', '$location', function($scope, 
 	$scope.isCurrent = function(route) {
 		return route === $location.path();
 	};
+}]);
+app.controller('titleController', ['$scope', 'Page', function($scope, Page){
+	$scope.Page = Page;
 }]);
 angular.module('angular-accordion', [])
     .directive('angularAccordion', function() {
@@ -365,4 +379,12 @@ app.service('sidebarService', ['$http', '$q', function($http, $q){
             }
         };
     }]);
+app.factory('Page', function(){
+	var title = 'FilmsOnYoutube';
+	var after = ' - FilmsOnYoutube';
+	return {
+		title: function() { return title; },
+		setTitle: function(newTitle) { title = newTitle + after; }
+	};
+});
 //# sourceMappingURL=app.js.map
