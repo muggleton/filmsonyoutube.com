@@ -6289,7 +6289,7 @@ body {
 .search-input:focus {
       box-shadow: none;
       background: white;
-      color: #999; }
+      color: #333; }
     body
 .search-sidebar
 .search-box {
@@ -6350,7 +6350,7 @@ body {
 .number-input:focus {
               box-shadow: none;
               background: white;
-              color: #999; }
+              color: #333; }
           body
 .search-sidebar
 .filter-options
