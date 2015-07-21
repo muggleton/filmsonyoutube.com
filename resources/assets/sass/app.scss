@@ -440,7 +440,21 @@ body
 				}
 				display: inline-block;
 				padding-right: 5px;
+				a
+				{
+					color: $font-color;
+				}
+				a:hover
+				{
+					color: white;
+				}
+				a:hover,
+				a:focus
+				{
+					text-decoration: none;
+				}
 			}
+
 
 			padding-bottom: 12px;
 		}

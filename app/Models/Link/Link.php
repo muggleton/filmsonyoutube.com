@@ -15,7 +15,7 @@ class Link extends Model
 	protected $guarded = ['id'];
 
 	// Register custom attributes
-	protected $appends = ['embed', 'url'];
+	protected $appends = ['embed', 'url', 'reddit'];
 
 
 	// Hidden
@@ -43,5 +43,10 @@ class Link extends Model
 			return '/' . $this->id . '/' . str_slug($this->film->title . ' ' . $this->film->year);
 		}
 		
+	}
+
+	public function getRedditAttribute()
+	{
+		return '//www.reddit.com/r/fullmoviesonyoutube/comments/' . $this->reddit_id;
 	}
 }

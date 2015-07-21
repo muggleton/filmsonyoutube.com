@@ -6629,6 +6629,28 @@ body {
 .link-stat
 i {
         color: white; }
+      body
+.link-container
+.link-stats
+.link-stat
+a {
+        color: #999; }
+      body
+.link-container
+.link-stats
+.link-stat
+a:hover {
+        color: white; }
+      body
+.link-container
+.link-stats
+.link-stat a:hover,
+      body
+.link-container
+.link-stats
+.link-stat
+a:focus {
+        text-decoration: none; }
   body
 .link-container
 .link-information-container {
