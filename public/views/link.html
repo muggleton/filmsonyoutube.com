@@ -1,6 +1,8 @@
 <div ng-controller="linkController" class="link-container">
 	<div class="row">
 		<div class="col-xs-12">
+			<div class="no-links" ng-cloak ng-show="notFound">Sorry, the film you were looking for could not be found.</div>
+
 			<h1 ng-cloak ng-show="link.film.title" class="title"><% link.film.title %> (<% link.film.year %>)</h1>
 			<p class="link-plot"><% link.film.plot %></p>
 			<div class="link-stats" ng-cloak ng-show="link.film.imdb_rating">

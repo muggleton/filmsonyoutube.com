@@ -97,13 +97,34 @@ class LinksController extends Controller
 
         }
 
-        return $links->paginate(9);
+
+
+        $links = $links->paginate(9);
+
+        if($links->isEmpty())
+        {
+             // Return 204 : No content
+            return abort(204, 'No content');
+        }
+
+        // Otherwise return links
+        return $links;
     }
 
     public function show($id)
     {
         // Find link
-        return Link::whereId($id)->with('resolution', 'film.genres', 'film.languages', 'film.directors', 'film.cast')->first();
+        $link = Link::whereId($id)->with('resolution', 'film.genres', 'film.languages', 'film.directors', 'film.cast')->first();
+        
+        // Check if link doesn't exist
+        if(!$link)
+        {
+            // Return 204 : No content
+            return abort(204, 'No content');
+        }
+
+        // Otherwise return the link
+        return $link;
     }
 
 }

@@ -49,22 +49,22 @@ app.controller('linkController', ['$scope', '$routeParams', 'linkService', 'Page
 		var link = linkService.get($routeParams.id);
 
 		// If it is successful
-		link.success(function(response){
-
-			$scope.link = response;
+		link.success(function(data, status){
+			$scope.link = data;
 			
-			if (typeof response.film.title === 'undefined') 
+			if (status == 200) 
 			{
-				// Movie not found
-				return $scope.notFound = true;
-
+				Page.setTitle(data.film.title + ' (' + data.film.year + ')');
 			}
-			else
+			// No content status code
+			else if(status == 204)
 			{
-
-				Page.setTitle(response.film.title + ' (' + response.film.year + ')');
-				$scope.notFound = false;
+				$scope.notFound = true;
 			}
+		});
+
+		link.error(function(data){
+			$scope.notFound = true;
 		});
 	}
 
@@ -78,7 +78,7 @@ app.controller('linksController', ['$rootScope', '$scope', '$q', '$filter', 'lin
 	$scope.search_term = '';
 	$scope.sidebar = [];
 	$scope.sidebar.rating = [];
-
+	$scope.noLinks = false;
 	$scope.genres_query_string = '';
 	$scope.languages_query_string = '';
 	$scope.resolutions_query_string = '';
@@ -98,12 +98,19 @@ app.controller('linksController', ['$rootScope', '$scope', '$q', '$filter', 'lin
 	var links = linkService.all(1, $scope.search_term, $scope.genres_query_string, $scope.resolutions_query_string, $scope.languages_query_string,  0, 10, 0, 10000);
 
 		// If it is successful
-		links.success(function(response){
+		links.success(function(response, status){
 			$scope.current_page = response.current_page;
 			$scope.last_page = response.last_page;
 			$scope.links = response.data;
 
-
+			if(status == 204)
+			{
+				$scope.noLinks = true;
+			}
+			else
+			{
+				$scope.noLinks = false;
+			}
 		});
 
 		$scope.busy = false;
@@ -119,7 +126,7 @@ app.controller('linksController', ['$rootScope', '$scope', '$q', '$filter', 'lin
 
 		var links = linkService.all($scope.current_page + 1, $scope.search_term, $scope.genres_query_string, $scope.resolutions_query_string, $scope.languages_query_string, $scope.sidebar.rating.from, $scope.sidebar.rating.to, $scope.sidebar.year.from, $scope.sidebar.year.to);
 		// If it is successful
-		links.success(function(response){
+		links.success(function(response, status){
 			// For some reason we can't push the entire array to the scope so we will do it one by one
 			for (var i = 0; i < response.data.length; i++) {
 				$scope.links.push(response.data[i]);
@@ -127,6 +134,14 @@ app.controller('linksController', ['$rootScope', '$scope', '$q', '$filter', 'lin
 			$scope.current_page = response.current_page;
 			$scope.last_page = response.last_page;
 			
+			if(status == 204)
+			{
+				$scope.noLinks = true;
+			}
+			else
+			{
+				$scope.noLinks = false;
+			}
 
 		});
 		$scope.busy = false;
@@ -163,10 +178,19 @@ app.controller('linksController', ['$rootScope', '$scope', '$q', '$filter', 'lin
 		var links = linkService.all(1, $scope.search_term, $scope.genres_query_string, $scope.resolutions_query_string, $scope.languages_query_string, $scope.sidebar.rating.from, $scope.sidebar.rating.to, $scope.sidebar.year.from, $scope.sidebar.year.to);
 
 		// If it is successful
-		links.success(function(response){
+		links.success(function(response, status){
 			$scope.current_page = response.current_page;
 			$scope.last_page = response.last_page;
 			$scope.links = response.data;
+
+			if(status == 204)
+			{
+				$scope.noLinks = true;
+			}
+			else
+			{
+				$scope.noLinks = false;
+			}
 
 		});
 		$scope.busy = false;

@@ -6389,14 +6389,14 @@ body {
 .angular-accordion-container
 .angular-accordion-pane
 .angular-accordion-header:hover {
-            background: #1C1C1C; }
+            background: transparent; }
           body
 .search-sidebar
 .filter-options
 .angular-accordion-container
 .angular-accordion-pane
 .angular-accordion-header.angularaccordionheaderselected {
-            background: #1C1C1C; }
+            background: transparent; }
             body
 .search-sidebar
 .filter-options
@@ -6426,7 +6426,7 @@ body {
 .filter-options
 .angular-accordion-container
 .angular-accordion-pane-content {
-          background: #1C1C1C;
+          background: transparent;
           padding: 0 12.5px;
           overflow-y: auto; }
           body

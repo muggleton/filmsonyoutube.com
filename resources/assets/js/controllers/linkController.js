@@ -7,22 +7,22 @@ app.controller('linkController', ['$scope', '$routeParams', 'linkService', 'Page
 		var link = linkService.get($routeParams.id);
 
 		// If it is successful
-		link.success(function(response){
-
-			$scope.link = response;
+		link.success(function(data, status){
+			$scope.link = data;
 			
-			if (typeof response.film.title === 'undefined') 
+			if (status == 200) 
 			{
-				// Movie not found
+				Page.setTitle(data.film.title + ' (' + data.film.year + ')');
+			}
+			// No content status code
+			else if(status == 204)
+			{
 				$scope.notFound = true;
-
 			}
-			else
-			{
+		});
 
-				Page.setTitle(response.film.title + ' (' + response.film.year + ')');
-				$scope.notFound = false;
-			}
+		link.error(function(data){
+			$scope.notFound = true;
 		});
 	}
 
