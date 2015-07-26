@@ -1,0 +1,71 @@
+#topbar
+{
+    background: $topbar-color;
+    border: none;
+    border-radius: 0;
+
+    .navbar-header {
+        float: left;
+        text-align: center;
+        width: 100%;
+    }
+    .navbar-brand
+    {
+        float:none;
+
+        .navbar-logo
+        {
+            max-width: 160px;
+            margin-top: 9px;
+            margin-right: -42px;
+            display: inline-block;
+        }
+    }
+    .navbar-home
+    {
+
+        color: $link-color;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        position: relative;
+        float: right;
+        padding: 5px 10px 5px 14px;
+        margin-top: 8px;
+
+        @media(max-width: $screen-sm-size){
+            padding-right: 0;
+            margin-right: -15px;
+        }
+
+    }
+    .navbar-home:hover,
+    .navbar-home:focus
+    {
+        color: white;
+    }
+    .navbar-toggle
+    {
+        border: none;
+
+        margin-right: 0;;
+
+        @media(max-width: $screen-sm-size){
+            margin-right: -15px;
+            padding-right: 0;
+        }
+
+    }
+    .navbar-toggle:hover,
+    .navbar-toggle:focus
+    {
+
+        background: transparent;
+
+        .icon-bar
+        {
+            background: white;
+        }
+    }
+
+}

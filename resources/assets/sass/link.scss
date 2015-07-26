@@ -1,0 +1,155 @@
+    .link
+    {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        .link-title
+        {
+            position: absolute;
+            background: $transparent-color;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            top: 0;
+            left: 0;
+        }
+
+        .link-information
+        {
+            position: absolute;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            background: $transparent-color;
+            color: white;
+            bottom: 0;
+
+            .link-imdb-rating
+            {
+                text-align: left;
+
+                .link-imdb-votes
+                {
+                    font-size: 12px;
+                    color: $info-color;
+                    padding-left: 1px;
+                }
+            }
+
+            .link-quality
+            {
+                text-align: right;
+            }
+            .film-length
+            {
+                text-align: center;
+            }
+        }
+        .link-hover-information
+        {
+            display: none;
+        }
+    }
+    .link:hover
+    {
+        .link-title
+        {
+            display: none;
+        }
+        .link-information
+        {
+            display: none;
+        }
+        .link-hover-information
+        {
+            .link-hover-title
+            {
+                padding: 10px;
+                font-size: 16px;
+                color: white;
+            }
+            .link-hover-plot
+            {
+                padding: 0 10px 10px;
+                font-size: 14px;
+                color: white;
+            }
+
+            .link-hover-lists-container
+            {
+                padding: 0 10px;
+
+                .link-hover-list
+                {
+                    margin-bottom: 5px;
+                    color: white;
+
+                    .link-hover-list-title
+                    {
+                        font-weight: bold;
+                        padding-bottom: 3px;
+                    }
+
+                    .link-hover-list-content
+                    {
+                        .link-hover-list-item
+                        {
+                            display: inline-block;
+                            padding-right: 5px;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+            .link-hover-bottom-information
+            {
+                padding: 10px;
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                width: 100%;
+                color: white;
+
+                .link-imdb-rating
+                {
+                    text-align: left;
+
+                    .link-imdb-votes
+                    {
+                        font-size: 12px;
+                        color: $info-color;
+                        padding-left: 1px;
+                    }
+                }
+
+                .film-length
+                {
+                    text-align: center;
+                }
+
+                .link-quality
+                {
+                    text-align: right;
+                }
+            }
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: $transparent-color;
+        }
+    }
+    .link:after
+    {
+        content: '';
+        display: block;
+        margin-top: 130%;
+    }
