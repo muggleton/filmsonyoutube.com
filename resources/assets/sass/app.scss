@@ -40,11 +40,11 @@ body
 
 	color: $font-color;
 
-	@import('topbar.scss');
-	@import('sidebar.scss');
-	@import('link.scss');
-	@import('link-page.scss');
-	@import('checkboxes.scss');
+	@import 'topbar.scss';
+	@import 'sidebar.scss';
+	@import 'link.scss';
+	@import 'link-page.scss';
+	@import 'checkboxes.scss';
 
 	.no-links
 	{
